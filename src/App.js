@@ -3,7 +3,7 @@ import './Styles/App.css';
 import Home from '../src/pages/Home.js';
 // import Navbar from './Components/Navbar';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { HashRouter as Router, Route, Routes} from 'react-router-dom';
 import Places from './pages/places.js';
 import Place from  './pages/place.js'
 import Signup  from './pages/Signup.js';
