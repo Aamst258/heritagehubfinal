@@ -1,0 +1,93 @@
+
+[
+    {
+      "id": "1",
+      "name": "Agra fort ",
+      "description": "The Agra Fort was built by the Mughal Emperor Akbar in 1565 AD.: As a UNESCO World Heritage Site and a monument with deep historical roots, the Agra Fort offers visitors a fascinating glimpse into India's Mughal past. Travelers interested in history and architecture will find the fort to be a treasure trove of insights into the Mughal Empire's grandeur and legacy .  Agra Fort offers guided tours led by knowledgeable guides who provide insightful commentary on the fort's history, architecture, and significance. Additionally, cultural programs and performances are often organized within the fort premises, allowing tourists to immerse themselves in the vibrant heritage of India  Agra Fort's specialty lies in its ability to offer traveller’s a captivating blend of history, architecture, culture, and scenic beauty, making it a must-visit destination for anyone exploring the cultural treasures of India",
+      "city": "Agra",
+      "state" :"Uttar Pradesh",
+      "virtual360image": "https://shorturl.at/iwASY",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/AgraFort.png"
+    },
+    {
+      "id": "2",
+      "name": "Ajanta Caves  ",
+      "description": "The Ajanta Caves are a series of 30 rock-cut Buddhist cave monuments dating back to the 2nd century BCE to the 5th century CE. These caves are renowned for their exquisite ancient frescoes, sculptures, and architecture, making them one of the most significant historical and cultural sites in India. The Ajanta Caves depict stories from Buddhist scriptures and showcase the evolution of Buddhist art over several centuries. They were designated as a UNESCO World Heritage Site in 1983. Visiting the Ajanta Caves offers traveller’s a remarkable journey into India's rich artistic and religious heritage, providing insights into ancient Buddhist civilization and artistry.  The Ajanta Caves are a must-visit destination for traveller’s interested in history, culture, and art. With their stunning architecture, artistic treasures, and serene surroundings, the caves offer a memorable experience that showcases the rich cultural heritage of India ",
+      "city": " Aurangabad",
+      "state" :"Maharashtra",
+      "virtual360image": "https://shorturl.at/bCLO6",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/AjantaCaves.png"
+    },
+    {
+      "id": "3",
+      "name": "Qutub Minar ",
+      "description": "An Iconic Indo-Islamic architecture in India Qutub Minar is a UNESCO World Heritage Site and a symbol of the city's rich history. Built by Qutb-ud-din Aibak in the 13th century, it stands at 73 meters, making it the tallest brick minaret globally. Its red sandstone and marble construction, adorned with intricate carvings, make it an architectural marvel. Visitors explore not just the minaret but also the complex surrounding it, home to historic structures like the Quwwat-ul-Islam Mosque and the Iron Pillar of Delhi. Tourists flock to Qutub Minar to immerse themselves in Delhi's cultural heritage and marvel at its grandeur. Accessibility is easy, with metro, bus, and taxi options, ensuring travellers can easily reach this iconic landmark and delve into its rich history and architectural splendour ",
+      "city": "Dehli",
+      "state" :"",
+      "virtual360image": "https://shorturl.at/dimN8",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/QutubMinar.png"
+    },
+    {
+      "id": "4",
+      "name": "Chola Temple",
+      "description": "Chola Temples, built by the Chola dynasty between the 9th and 13th centuries, stand as iconic landmarks of South India's rich heritage. These architectural marvels, characterized by towering gopurams, intricate sculptures, and elaborate mandapas, showcase the Chola's patronage of art and religion. Serving as both religious centers and historical landmarks, Chola Temples attract travelers seeking a cultural experience immersed in Hindu mythology and spirituality. Visitors are captivated by the temples' exquisite stone carvings and Dravidian-style architecture, reflecting a bygone era of artistic excellence. Beyond their religious significance, Chola Temples are popular tourist attractions, offering insights into South India's cultural tapestry and hosting vibrant religious rituals and festivals. With easy accessibility via road and local transportation, exploring these ancient marvels becomes a memorable journey into South India's rich past, enticing history enthusiasts, art aficionados, and spiritual seekers alike.",
+      "city": "Thanjavur",
+      "state" :"TamilNadu",
+      "virtual360image": "https://shorturl.at/ADGNP",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/cholaTemple.png"
+    },
+    {
+      "id": "5",
+      "name": "Fatehpur Sikhri",
+      "description": "Fatehpur Sikri, a UNESCO World Heritage Site near Agra, Uttar Pradesh, was built by Emperor Akbar in the 16th century. Serving briefly as the Mughal capital, it's renowned for its fusion of Persian, Indian, and Islamic architectural styles. The Buland Darwaza, Jama Masjid, Panch Mahal, Diwan-i-Khas, and the Tomb of Salim Chishti are among its magnificent structures, showcasing exquisite craftsmanship. Visitors delve into Mughal history and culture, gaining insights into Akbar's reign and the Mughal court's grandeur. Guided tours offer a deeper understanding of the site's significance. Easily accessible from Agra, Fatehpur Sikri is often combined with visits to the Taj Mahal and Agra Fort, enriching the experience of exploring Mughal heritage. It remains a captivating destination, inviting travellers to embark on a journey through history, architecture, and culture in the heart of India.",
+      "city": "Agra",
+      "state" :"Uttar Pradesh",
+      "virtual360image": "https://shorturl.at/ipP28",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/Fatehpursekri.png"
+    },
+    {
+      "id": "6",
+      "name": "The Elephanta Caves",
+      "description": "The glorious abode of Lord Shiva The Elephanta Caves, a UNESCO World Heritage Site on Elephanta Island in Mumbai Harbor, Maharashtra, date back to the 5th to 8th centuries CE. Accessible via a short ferry ride from the Gateway of India, they offer a convenient day trip. Renowned for their Hindu and Buddhist sculptures, they represent a blend of artistic styles from various dynasties. The main cave, known as the Great Cave or Cave 1, houses impressive sculptures of Hindu deities, showcasing exquisite craftsmanship. Visitors can explore other smaller caves and structures, each offering unique architectural and artistic features. The island's scenic beauty and tranquil atmosphere add to the allure of the site, attracting tourists worldwide. The Elephanta Caves provide insights into India's rich cultural and religious heritage, offering a unique cultural experience for history buffs and art enthusiasts. With regular ferry services from Mumbai, the journey offers picturesque views of the city's skyline, enhancing the overall experience. The Elephanta Caves offer a captivating blend of history, art, and spirituality, making them a must-visit destination for traveller’s exploring India's cultural treasures.",
+      "city": "Mumbai",
+      "state" :"Maharashtra",
+      "virtual360image": "https://shorturl.at/pCDE8",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/ElephantCaves.png"
+    }, {
+      "id": "7",
+      "name": "Jantar Mantar",
+      "description": "Jantar Mantar, a historical marvel in Jaipur Rajasthan, was built in the 18th century by Maharaja Jai Singh II of Jaipur as an observatory to study celestial movements and time measurement. Its architectural brilliance shines through several stone and marble instruments meticulously crafted to track celestial bodies' positions. For traveller’s, it offers a fascinating glimpse into India's scientific heritage and astronomical advancements, attracting history buffs and science enthusiasts alike. Beyond its scientific significance, Jantar Mantar is a prominent tourist attraction where visitors can explore various astronomical instruments, learning about their functions and marvelling at their intricacies. Conveniently located in central New Delhi, it's easily accessible by public transportation, making it a must-visit destination for tourists exploring the city's cultural heritage. Often included in guided tours of Delhi's historical sites, Jantar Mantar ensures visitors have a comprehensive experience, immersing them in India's rich scientific and cultural legacy.",
+      "city": "Jaipur",
+      "state" :"Rajasthan",
+      "virtual360image": "https://shorturl.at/fNUZ3",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/Jantarmantar.png"
+    },
+    {
+      "id": "8",
+      "name": "Golden Temple ",
+      "description": "The Golden Temple is a revered spiritual and cultural landmark. Built in the 16th century by Guru Arjan Dev, it holds immense significance for Sikhism as its holiest Gurdwara. The temple's architecture, blending Hindu, Islamic, and Sikh styles, is symbolically rich, with a shimmering gold dome standing amidst the Amrit Sarovar. Visitors experience profound spirituality and cultural immersion, participating in communal meals at the langar halls, embodying Sikh principles of equality. The complex includes attractions like the Akal Takht, Sikh Museum, and the revered Guru Granth Sahib. The nightly Palki Sahib ceremony adds to the spiritual ambiance. Amritsar's accessibility by air, rail, and road facilitates easy travel for tourists. The Golden Temple complex, open day and night, offers free accommodation, welcoming millions annually to its sacred grounds for a spiritually enriching experience.",
+      "city": "Amritsar",
+      "state" :"Punjab",
+      "virtual360image": "https://shorturl.at/kzTY3",
+      "mapimage":"",
+      "visiting-time":"",
+      "image":"/images/Golden_Temple.png"
+    }
+   
+    
+  ]
+  
