@@ -58,8 +58,6 @@ Join us on a journey through time and across states as we delve into the wonders
             <p>While we strive to provide accurate and reliable information, Heritage Hub cannot guarantee the completeness, accuracy, or reliability of the content published on our website. Our articles, images, and other materials are intended for informational purposes only and should not be construed as professional advice or authoritative sources for decision-making. Users are encouraged to verify information independently and consult relevant experts or authorities for specific inquiries or concerns. Heritage Hub shall not be liable for any errors, omissions, or damages arising from the use of or reliance on the content provided herein.</p>
         </div>
      </div>   
-  {/*  */}
-    
 
     </div>
     
