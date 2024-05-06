@@ -23,7 +23,7 @@ Join us on a journey through time and across states as we delve into the wonders
             <p>At Heritage Hub, we take your privacy seriously and are committed to protecting the personal information you entrust to us. Our Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our website. We adhere to strict privacy standards and comply with relevant regulations to ensure transparency and accountability in our data practices. By using Heritage Hub, you consent to the terms outlined in our Privacy Policy.</p>
         </div>
      </div>  
-     //   
+      
      <div className="row">
         <div className="col">
             <h1 className='fw-bold'> Contact Us </h1>

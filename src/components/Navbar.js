@@ -94,7 +94,7 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link to="/places" className="nav-link active">Destinations</Link>
                 </li>
-                {/* Hide Book a Tour link if logged-in user is a guide */}
+                
                 {!loggedinGuide && (
                   <li className="nav-item">
                     <Link to="/book-tour" className=' nav-link active'>Book a Tour</Link>
