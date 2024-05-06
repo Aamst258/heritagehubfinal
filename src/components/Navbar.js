@@ -2,24 +2,23 @@ import React, { useState, useEffect } from 'react';
 import '../Styles/App.css'  
 import { Link, useNavigate } from 'react-router-dom';
 
-
 const Navbar = () => {
   const [isNavbarFixed, setIsNavbarFixed] = useState(false);
-  const [showUserInfo, setShowUserInfo] = useState(false); // State to toggle user info
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('userData'));
-  const guide = JSON.parse(localStorage.getItem('guideData'));
-  const isLoggedIn = localStorage.getItem('loggedin');
+  const loggedinUserId = localStorage.getItem('loggedinUserId');
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  const guides = JSON.parse(localStorage.getItem('guides')) || [];
+  const loggedinUser = users.find(user => user.id === loggedinUserId);
+  const loggedinGuide = guides.find(guide => guide.id === loggedinUserId);  
+  const userRole = localStorage.getItem('userRole');
 
+  const handleLogout = () => {
+    localStorage.removeItem('loggedin');
+    localStorage.removeItem("loggedinUserId")
+    localStorage.removeItem('userRole')
+    navigate('/login');
+  }; 
 
-  const handleLogout = () =>{
-   localStorage.removeItem("loggedin")
-   navigate("/login")
-          
-  }  
-  const toggleUserInfo = () => {
-    setShowUserInfo(prevState => !prevState);
-  };
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -60,14 +59,12 @@ const Navbar = () => {
             zIndex: 1000, // Ensure the text appears above the navbar
           }}
         >
-          
-            <h2 className=" ml-0" style={{ fontFamily: 'Alex Brush', fontSize: '5vw' }}>
-              Unveiling India's Timeless
-            </h2>
-            <h1 className="text-white fw-bold ml-0" style={{ fontFamily: 'Poppins', fontSize: '8vw' }}>
-              treasure.
-            </h1>
-        
+          <h2 className=" ml-0" style={{ fontFamily: 'Alex Brush', fontSize: '5vw' }}>
+            Unveiling India's Timeless
+          </h2>
+          <h1 className="text-white fw-bold ml-0" style={{ fontFamily: 'Poppins', fontSize: '8vw' }}>
+            treasure.
+          </h1>
         </div>
 
         {/* Navbar */}
@@ -93,53 +90,33 @@ const Navbar = () => {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-              {/* <form className="d-flex ms-auto">
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="form-control form-control-sm text-white bg-light navbar-dark rounded-pill"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="basic-addon1"
-                  />
-                </div>
-              </form> */}
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
-                    Book a Tour
-                  </a>
-                </li>
-                <li className="nav-item">
-                  
                   <Link to="/places" className="nav-link active">Destinations</Link>
-
                 </li>
+                {/* Hide Book a Tour link if logged-in user is a guide */}
+                {!loggedinGuide && (
+                  <li className="nav-item">
+                    <Link to="/book-tour" className=' nav-link active'>Book a Tour</Link>
+                  </li>
+                )}
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
-                    Forums
-                  </a>
-                </li>
-                <li className="nav-item">
-            <button type="submit" className='nav-link active' onClick={handleLogout}>Logout</button>
-            </li>   
-             {/* Add the Toggle User Info button here */}
-             <li className="nav-item">
-                  <button className="nav-link" onClick={toggleUserInfo}>
-                    Toggle User Info
-                  </button>
-                </li>
+                  <button type="submit" className='nav-link active' onClick={handleLogout}>Logout</button>
+                </li>   
+                {loggedinUser && userRole === 'User' && (
+                  <li className="nav-item">
+                    <Link to="/user-dashboard" className="nav-link">User Dashboard</Link>
+                  </li>
+                )}
+                {loggedinGuide && userRole === "Guide" && (
+                  <li className="nav-item">
+                    <Link to="/guide-dashboard" className="nav-link">Guide Dashboard</Link>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
         </nav>  
-       {/* Conditionally render user info */}
-       {showUserInfo && isLoggedIn && (
-          <div className="user-info position-fixed top-0 end-0 mt-5 me-5 bg-white p-3 rounded shadow" style={{zIndex:400}}>
-            <p className="mb-0">Name: {user ? user.name : (guide ? guide.name : '')}</p>
-            <p className="mb-0">Role: {user ? user.userRole : (guide ? 'Guide' : '')}</p>
-          </div>
-        )}
       </div>
     </>
   );

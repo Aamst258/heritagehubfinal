@@ -2,48 +2,68 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavbarForOther from '../components/NavbarForOther';
 import Footer from '../components/Footer';
-import placesData from '../data/placesData.json'; // Import the JSON file
+import placesData from '../data/placesData.json'; 
+import { v4 as uuidv4 } from 'uuid';
 
 const SignupGuide = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
-    languagesKnown: [], // Change to array for multiple selections
+    languagesKnown: [],
     placesKnown: [],
   });
 
   const { name, email, password, languagesKnown, placesKnown } = formData;
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked, options } = e.target;
   
     if (type === 'checkbox') {
-      // For checkbox (multiple selections)
       if (checked) {
         setFormData({ ...formData, [name]: [...formData[name], value] });
       } else {
         setFormData({ ...formData, [name]: formData[name].filter(item => item !== value) });
       }
     } else if (type === 'select-multiple') {
-      // For multiple select dropdown
       const selectedOptions = Array.from(options).filter(option => option.selected).map(option => option.value);
       setFormData({ ...formData, [name]: selectedOptions });
     } else {
-      // For other input types
       setFormData({ ...formData, [name]: value });
     }
   };
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Store user data in local storage
-    const guideData = { ...formData, userRole: "Guide" };
-    localStorage.setItem('guideData', JSON.stringify(guideData));
-    // Redirect to login page using navigate
+  
+    // Retrieve user data array from local storage
+    let userDataArray = JSON.parse(localStorage.getItem('guides')) || [];
+  
+    
+    
+    // Get the ID of the newly signed-up user
+    const newUserId = uuidv4();  
+    // Add the user role "Guide" to the form data
+  const formDataWithUserRole = {
+    ...formData,
+    userRole: "Guide",
+    id: newUserId 
+  };
+
+  // Add the new guide to the guide data array
+  userDataArray.push(formDataWithUserRole);
+
+  
+    // Update the users array in localStorage
+    localStorage.setItem('guides', JSON.stringify(userDataArray));
+  
+   
+  
+    // Redirect to dashboard or home page
     navigate('/login-guide');
   };
+  
 
   return ( 
     <> 
@@ -55,6 +75,7 @@ const SignupGuide = () => {
               <div className="card-body">
                 <h2 className="card-title text-center mb-4">Signup as Guide</h2>
                 <form onSubmit={handleSubmit}>
+                  {/* Rest of the form */}  
                   <div className="mb-3">
                     <input
                       type="text"
@@ -86,39 +107,39 @@ const SignupGuide = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    {/* Dropdown for selecting multiple languages */}
+                    <p className='text-center'> Choose a places:</p>
+                    {/* Scroll-down interface for selecting multiple places */}
                     <select
-                      name="languagesKnown"
-                      value={languagesKnown}
+                      name="placesKnown"
+                      value={placesKnown}
                       onChange={handleChange}
                       className="form-control"
                       multiple
                     >
-                      <option value="English">English</option>
-                      <option value="Kannada">Kannada</option>
-                      <option value="Hindi">Hindi</option>
-                      <option value="Tamil">Tamil</option>
-                      <option value="Malayalam">Malayalam</option>
-                      <option value="Telugu">Telugu</option>
-                      <option value="Marathi">Marathi</option>
+                      {placesData.map(place => (
+                        <option key={place.id} value={place.id}>{place.name},{place.state}</option>
+                      ))}
                     </select>
                   </div>
                   <div className="mb-3">
-                    {/* Checkbox for places known */}
-                    {placesData.map(place => (
-                      <div key={place.id}>
+                    {/* Checkboxes for selecting multiple languages */}
+                    {['English', 'Kannada', 'Hindi', 'Tamil', 'Malayalam', 'Telugu', 'Marathi'].map(language => (
+                      <div key={language} className='form-check'>
                         <input
                           type="checkbox"
-                          id={place.id}
-                          name="placesKnown"
-                          value={place.id}
-                          checked={placesKnown.includes(place.id)}
-                          onChange={handleChange}
+                          id={language}
+                          name="languagesKnown"
+                          value={language}
+                          checked={languagesKnown.includes(language)}
+                          onChange={handleChange} 
+                          className='form-check-input'
                         />
-                        <label htmlFor={place.id}>{place.name}</label>
+                        <label htmlFor={language} className='form-check-label'>{language}</label>
                       </div>
                     ))}
                   </div>
+
+                  
                   {/* Rest of the form */}
                   <div className="d-grid gap-2">
                     <button type="submit" className="btn btn-primary">Signup</button>

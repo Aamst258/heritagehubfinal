@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Styles/footer.css"
+import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <>
@@ -26,11 +27,11 @@ function Footer() {
         </div>
         <div className="footer_tags">
             <div className="tags">
-                <a href="#">About</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Help</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Disclaimer</a>
+            <Link to="/footer">About</Link>
+          <Link to="/footer">Contact Us</Link>
+          <Link to="/footer">Help</Link>
+          <Link to="/footer">Privacy Policy</Link>
+          <Link to="/footer">Disclaimer</Link>
             </div>
             <div className="rights">
                 <p>Copyright © 2024</p>

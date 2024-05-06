@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer'
-// import NavbarForOthers from '../components/NavbarForOthers';
+import Footer from '../components/Footer';
 import NavbarForOther from '../components/NavbarForOther';
 
 const Login = () => {
@@ -20,35 +19,36 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    // Retrieve user data from local storage
-    const userData = JSON.parse(localStorage.getItem('userData'));
+    // Retrieve user data array from local storage
+    const userDataArray = JSON.parse(localStorage.getItem('users')) || [];
   
-    // Check if user data exists and contains the required properties
-    if (userData && userData.email && userData.password) {
-      console.log('Stored user data:', userData);
-      console.log('Entered email:', formData.email);
-      console.log('Entered password:', formData.password);
+    // Find the user with the entered email
+    const user = userDataArray.find(user => user.email === formData.email );
   
-      // Check if credentials match
-      if (formData.email === userData.email && formData.password === userData.password) {
-        // Redirect to dashboard or home page
-        localStorage.setItem('loggedin', true);
-        navigate('/');
-      } else {
-        // Handle invalid credentials
-        alert('Invalid email or password');
-      }
+    // If user exists and password matches
+    if (user && user.password === formData.password) {
+      // Set the logged-in user ID in localStorage
+      localStorage.setItem('loggedinUserId', user.id); 
+      localStorage.setItem('userRole', user.userRole); 
+      // Set a flag to indicate that the user is logged in
+      localStorage.setItem('loggedin', true);
+      // Redirect to dashboard or home page
+      navigate('/');
+    } else if (user && user.password !== formData.password) {
+      // Handle case where password is incorrect
+      alert('Invalid password');
     } else {
-      // Handle case where user data is not found or invalid
-      alert('User not registered ');
+      // Handle case where user is not registered
+      alert('User not registered');
     }
   };
   
+  
 
-  return (  
-    <>  
+  return (
+    <>
       <NavbarForOther />
-      <div className="container mt-5  mb-5">
+      <div className="container mt-5 mb-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card">
@@ -86,7 +86,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>    
+      </div>
       <Footer />
     </>
   );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import NavbarForOther from '../components/NavbarForOther';
 import Footer from '../components/Footer';
+import { v4 as uuidv4 } from 'uuid';
 // import NavbarAuth from '../components/NavbarAuth';
 
 const Signup = () => {
@@ -20,13 +21,35 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Store user data in local storage
-    const userData = { ...formData, userRole: "visitor" };
+  
+    // Retrieve user data array from local storage
+    let userDataArray = JSON.parse(localStorage.getItem('users')) || [];
+  
+    // Assuming the last user entry has the newly signed-up user
+    
+    
+    // Get the ID of the newly signed-up user
+    const newUserId = uuidv4(); 
+    console.log(newUserId);
 
-    localStorage.setItem('userData', JSON.stringify(userData));
-    // Redirect to login page using navigate
+    const formDataWithUserRole = {
+      ...formData,
+      userRole: "User",
+      id: newUserId 
+    };
+  
+    // Add the new guide to the guide data array
+    userDataArray.push(formDataWithUserRole);
+  
+  
+    // Update the users array in localStorage
+    localStorage.setItem('users', JSON.stringify(userDataArray));
+  
+    // Redirect to dashboard or home page
     navigate('/login');
   };
+  
+  
 
   return ( 
     <> 

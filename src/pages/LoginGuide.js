@@ -10,7 +10,7 @@ const LoginGuide = () => {
   });
 
   const { email, password } = formData;
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,22 +18,32 @@ const LoginGuide = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Retrieve user data from local storage
-    const userData = JSON.parse(localStorage.getItem('guideData')); // Retrieve guide data
-    console.log('Stored guide data:', userData);
-    console.log('Entered email:', email);
-    console.log('Entered password:', password);
-    // Check if credentials match
-
-    if (formData.email === userData.email && formData.password === userData.password) {
-      // Redirect to dashboard or home page
+  
+    // Retrieve user data array from local storage
+    const userDataArray = JSON.parse(localStorage.getItem('guides')) || [];
+  
+    // Find the user with the entered email
+    const guide = userDataArray.find(guide => guide.email === formData.email );
+  
+    // If user exists and password matches
+    if (guide && guide.password === formData.password) {
+      // Set the logged-in user ID in localStorage
+      localStorage.setItem('loggedinUserId', guide.id);
+      // Set a flag to indicate that the user is logged in
       localStorage.setItem('loggedin', true);
+      // Redirect to dashboard or home page  
+      // set the role 
+      localStorage.setItem('userRole', guide.userRole);
       navigate('/');
+    } else if (guide && guide.password !== formData.password) {
+      // Handle case where password is incorrect
+      alert('Invalid password');
     } else {
-      // Handle invalid credentials
-      alert('Invalid email or password');
+      // Handle case where user is not registered
+      alert('User not registered');
     }
   };
+  
 
   return (
     <>

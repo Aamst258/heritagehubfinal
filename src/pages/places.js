@@ -6,15 +6,14 @@ import Footer from '../components/Footer';
 
 function Places() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [cityFilter, setCityFilter] = useState('');
-  const user = JSON.parse(localStorage.getItem("userData"));
+  const [stateFilter, setStateFilter] = useState('');
 
   const filteredPlacesBySearch = placesData.filter(place =>
     place.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const filteredPlacesByCity = filteredPlacesBySearch.filter(place =>
-    place.city.toLowerCase().includes(cityFilter.toLowerCase())
+  const filteredPlacesByState = filteredPlacesBySearch.filter(place =>
+    place.state.toLowerCase().includes(stateFilter.toLowerCase())
   );
 
   return (
@@ -22,7 +21,6 @@ function Places() {
       <div>
         <NavbarAuth />
         <div className="container my-2"> 
-        <p className='text-center'>{user.name}</p>
           <h1 className="text-center">Destinations</h1>
           <div className="mb-3">
             <p className="text-center mb-0">Explore India’s Timeless Treasures</p>
@@ -41,15 +39,15 @@ function Places() {
             <div className="col-md-6  my-1">
               <input
                 type="text"
-                placeholder="Filter by city"
-                value={cityFilter}
-                onChange={(e) => setCityFilter(e.target.value)}
+                placeholder="Filter by state"
+                value={stateFilter}
+                onChange={(e) => setStateFilter(e.target.value)}
                 className="form-control"
               />
             </div>
           </div>
           <div className="row">
-            {filteredPlacesByCity.map(place => (
+            {filteredPlacesByState.map(place => (
               <div key={place.id} className="col-md-4 mb-3">
                 <div className="card">
                   <img src={place.image} className="card-img-top img-responsive" style={{ height: '200px' }} alt={place.name} />

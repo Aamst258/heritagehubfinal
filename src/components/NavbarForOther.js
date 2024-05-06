@@ -26,11 +26,7 @@ const NavbarForOther = () => {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link active" href="#">
-                Book a Tour
-              </a>
-            </li>
+            
             <li className="nav-item">
               <Link to="/places" className="nav-link active">Destinations</Link>
             </li>

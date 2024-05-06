@@ -1,9 +1,9 @@
 {
-  "homepage": "https://Aamst258.github.io/heritagehubfinal",
   "name": "heritagehubfinal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,11 +13,10 @@
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "router": "^1.3.8",
+    "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
