@@ -14,12 +14,15 @@ import LoginGuide from './pages/LoginGuide.js';
 import UserDashBoard from './pages/UserDashBoard.js';
 import GuideDashboard from './pages/GuideDashboard.js';
 import BookTour from './pages/BookTour.js';
-import FooterContent from './pages/FooterContent.js';
+import FooterContent from './pages/FooterContent.js';  
+
+
 
  
 
 function App() {
- 
+  
+  
   return (
     <Router> 
 
