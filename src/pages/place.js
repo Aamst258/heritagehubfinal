@@ -9,7 +9,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 function Place() {
   const { id } = useParams();
   const place = placesData.find(place => place.id === id);
-  
+   console.log(place)
   if (!place) {
     return (
       <div>Place not found</div>

@@ -18,18 +18,34 @@ function GuideDashboard() {
     const loggedInUserId = localStorage.getItem('loggedinUserId') || '';
     const guides = JSON.parse(localStorage.getItem('guides')) || [];
     const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-
+    const users = JSON.parse(localStorage.getItem('users')) || []; // Assuming there's a 'users' array in local storage
+  
     // Find the guide's details based on the logged-in user ID
     const guide = guides.find(guide => guide.id === loggedInUserId) || {};
-    const bookedPlaces = bookings.filter(booking => booking.guide === loggedInUserId).map(booking => booking.place);
-
+  
+    // Find the bookings made for the guide
+    const guideBookings = bookings.filter(booking => booking.guide === loggedInUserId);
+  
+    // Map the bookings to include both the place ID and the user who booked the guide
+    const userWhoBooked = guideBookings.map(booking => {
+      const user = users.find(user => user.id === booking.user);
+      return {
+        userName: user ? user.name : 'Unknown',
+        placeId: booking.place
+      };
+    });
+  
+    // Extract the place IDs from the bookings
+    const bookedPlaces = guideBookings.map(booking => booking.place);
+  
     // Set the guide data
     setGuideData({
       ...guide,
-      bookedPlaces
+      bookedPlaces,
+      userWhoBooked
     });
   }, []);
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setGuideData(prevGuideData => ({
@@ -140,13 +156,24 @@ function GuideDashboard() {
               <button type="submit" className="btn btn-primary">Update Details</button>
             </form>
             <div className="mt-5">
-              <h2>Booked Places</h2>
-              <ul>
-                {guideData.bookedPlaces.map((placeId, index) => (
-                  <li key={index}>{placesData.find(place => place.id === placeId)?.name}</li>
-                ))}
-              </ul>
-            </div>
+  <h2>Booked Places</h2>
+  <ul>
+    {guideData.bookedPlaces && guideData.bookedPlaces.map((placeId, index) => (
+      <li key={index}>{placesData.find(place => place.id === placeId)?.name}</li>
+    ))}
+  </ul>
+</div>
+
+<div className="mt-5">
+  <h2>Users Who Booked You</h2>
+  <ul>
+    {guideData.userWhoBooked && guideData.userWhoBooked.map((booking, index) => (
+      <li key={index}>{booking.userName}</li>
+    ))}
+  </ul>
+</div>
+
+
           </div>
         </div>
       </div>

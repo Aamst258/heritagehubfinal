@@ -5,8 +5,8 @@ import '../Styles/footer.css';
 
 function Footer() {
   return (
-    <footer className="bg-dark text-light py-5">
-      <div className="container">
+    <footer className="bg-dark text-light py-3 mt-5">
+      <div className="container ">
         <div className="row">
           <div className="col-md-6 mb-4">
             <div className="text-center">

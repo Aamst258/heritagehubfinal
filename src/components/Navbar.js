@@ -47,22 +47,24 @@ const Navbar = () => {
           backgroundRepeat: 'no-repeat',
           maxWidth: '100%',
           width: '100%',
-          height: '100vh',
+          height: '90vh',
           overflow: 'hidden', // Ensure the overflow is hidden to avoid the scroll bar
         }}
       >
         {/* Text content */}
         <div
-          className="position-fixed top-50 start-50 translate-middle p-1"
+          className="position-fixed  translate-middle p-1"
           style={{
             visibility: isNavbarFixed ? 'hidden' : 'visible', // Hide the text if navbar is fixed
-            zIndex: 1000, // Ensure the text appears above the navbar
+            zIndex: 1000, // Ensure the text appears above the navbar 
+            top:'35%',
+             left:'50%'
           }}
         >
-          <h2 className=" ml-0" style={{ fontFamily: 'Alex Brush', fontSize: '5vw' }}>
+          <h2 className=" ml-0" style={{ fontFamily: 'Alex Brush', fontSize: '40px' }}>
             Unveiling India's Timeless
           </h2>
-          <h1 className="text-white fw-bold ml-0" style={{ fontFamily: 'Poppins', fontSize: '8vw' }}>
+          <h1 className="text-white fw-bold ml-0" style={{ fontFamily: 'Poppins', fontSize: '80px' }}>
             treasure.
           </h1>
         </div>
@@ -79,7 +81,7 @@ const Navbar = () => {
               Heritage hub
             </span>
             <button
-              className="navbar-toggler ms-auto"
+              className="navbar-toggler ms-auto fw-bold"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
@@ -87,7 +89,7 @@ const Navbar = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon "></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -105,12 +107,12 @@ const Navbar = () => {
                 </li>   
                 {loggedinUser && userRole === 'User' && (
                   <li className="nav-item">
-                    <Link to="/user-dashboard" className="nav-link">User Dashboard</Link>
+                    <Link to="/user-dashboard" className="nav-link active">User Dashboard</Link>
                   </li>
                 )}
                 {loggedinGuide && userRole === "Guide" && (
-                  <li className="nav-item">
-                    <Link to="/guide-dashboard" className="nav-link">Guide Dashboard</Link>
+                  <li className="nav-item  active">
+                    <Link to="/guide-dashboard" className="nav-link active">Guide Dashboard</Link>
                   </li>
                 )}
               </ul>
