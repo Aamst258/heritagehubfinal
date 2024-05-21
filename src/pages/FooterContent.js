@@ -7,9 +7,9 @@ function FooterContent() {
     <>   
     <NavbarAuth />
 
-    <div className="container" style={{textAlign:'justify'}}>  
+    <div className="container " style={{textAlign:'justify', margin:'auto',paddingLeft:'10px',paddingRight:'10px'}}>  
     <div className="row">
-        <div className="col">
+        <div className="col ">
             <h1 className='fw-bold'> About Us</h1>
             <p> Welcome to Heritage Hub, your ultimate destination for exploring the rich tapestry of cultural heritage from around the India. At Heritage Hub, we are passionate about preserving and celebrating the diverse cultural legacies that shape our societies. Through engaging content, insightful articles, and captivating visuals, we aim to connect people with their heritage and foster a deeper appreciation for the traditions, artifacts, and stories that define our collective identity.
 Our platform serves as a digital repository of cultural knowledge, offering a curated selection of articles, images, and interactive experiences that highlight the beauty and significance of heritage sites, historical events, traditional practices, and more. Whether you're an avid history enthusiast, a curious traveller, or simply someone who values the importance of preserving cultural heritage, Heritage Hub is your go-to resource for immersive exploration and discovery.
@@ -33,7 +33,7 @@ Join us on a journey through time and across states as we delve into the wonders
       Mailasandra, Bengaluru, Karnataka 560059
     </p>
     <p>
-      <strong>Phone:</strong> +91 9481253026
+      <strong>Phone:</strong> +91 99800 99578
     </p>
     <p>
       <strong>Email ID:</strong> <a href="mailto:heritagehub73@gmail.com">heritagehub73@gmail.com</a>

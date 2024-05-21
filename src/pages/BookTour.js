@@ -30,7 +30,20 @@ function BookTour() {
     // Filter guides based on the selected place
     const guidesForSelectedPlace = guides.filter(guide => guide.placesKnown.includes(formData.place));
 
-    setAvailableGuides(guidesForSelectedPlace);
+    if (guidesForSelectedPlace.length === 0) {
+      // Default guide details
+      const defaultGuide = {
+        id: '1',
+        name: 'Harshitha',
+        email: 'harshitha@gmail.com',
+        placesKnown: placesData.map(place => place.id),
+        languages: ['English', 'Hindi', 'Kannada']
+      };
+      setAvailableGuides([defaultGuide]);
+    } else {
+      setAvailableGuides(guidesForSelectedPlace);
+    }
+
     setLoggedInUserId(userId); // Set logged-in user ID
     setLoggedInUserName(loggedInUser ? loggedInUser.name : ''); // Set logged-in user name
   }, [formData.place]);
@@ -60,6 +73,12 @@ function BookTour() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!formData.place || !formData.guide) {
+      alert('Please select both a place and a guide.');
+      return;
+    }
+
     // Handle form submission here (e.g., send data to backend or store in local storage)
     console.log('Form submitted:', formData);
 

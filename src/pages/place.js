@@ -41,7 +41,7 @@ function Place() {
           <div className="mt-4">
             <div className="section my-3">
               <h2 className="mb-4">Description</h2>
-              <p className='text-justify'>{place.description}</p>
+              <p className='text-justify' style={{textAlign:'justify'}}>{place.description}</p>
               <p className='fw-bold'>{place.city}, {place.state}</p>
             </div>    
             <div className="section my-3">

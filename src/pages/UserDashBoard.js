@@ -3,13 +3,23 @@ import Footer from '../components/Footer';
 import NavbarAuth from '../components/NavbarAuth';
 import placesData from '../data/placesData.json';
 
+const defaultGuide = {
+  id: '1',
+  name: 'Harshitha',
+  email: 'harshitha@gmail.com',
+  placesKnown: placesData.map(place => place.id),
+  languages: ['English', 'Hindi', 'Kannada']
+};
+
 function UserDashBoard() {
   const [userData, setUserData] = useState({
+    id: '',
     name: '',
     email: '',
     password: '',
     bookedPlaces: [],
-    bookedGuides: []
+    bookedGuides: [],
+    bookingDates: [] // Add bookingDates to state
   });
 
   useEffect(() => {
@@ -29,11 +39,13 @@ function UserDashBoard() {
     const userBookings = bookings.filter(booking => booking.user === userData.id);
     const bookedPlaces = userBookings.map(booking => booking.place);
     const bookedGuides = userBookings.map(booking => booking.guide);
+    const bookingDates = userBookings.map(booking => booking.date); // Fetch booking dates
 
     setUserData(prevUserData => ({
       ...prevUserData,
       bookedPlaces,
-      bookedGuides
+      bookedGuides,
+      bookingDates // Update state with booking dates
     }));
   }, [userData.id]);
 
@@ -48,8 +60,21 @@ function UserDashBoard() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Update user details in local storage
-    localStorage.setItem('users', JSON.stringify([userData]));
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const updatedUsers = users.map(user => 
+      user.id === userData.id ? userData : user
+    );
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
     alert('User details updated successfully!');
+  };
+
+  const getGuideName = (guideId) => {
+    if (guideId === defaultGuide.id) {
+      return defaultGuide.name;
+    }
+    const guides = JSON.parse(localStorage.getItem('guides')) || [];
+    const guide = guides.find(guide => guide.id === guideId);
+    return guide ? guide.name : 'Unknown Guide';
   };
 
   return (
@@ -77,13 +102,12 @@ function UserDashBoard() {
             <div className="mt-5">
               <h2>Booked Places</h2>
               <ul>
-              {userData.bookedPlaces.map((placeId, index) => (
-  <li key={index}>
-    <strong>{placesData.find(place => place.id === placeId)?.name}</strong> - Guide: {
-      userData.bookedGuides[index] ? JSON.parse(localStorage.getItem('guides'))?.find(guide => guide.id === userData.bookedGuides[index])?.name : 'undefined'
-    }
-  </li>
-))}
+                {userData.bookedPlaces.map((placeId, index) => (
+                  <li key={index}>
+                    <strong>{placesData.find(place => place.id === placeId)?.name}</strong> - Guide: {getGuideName(userData.bookedGuides[index])}
+                    <br />Date and Time: {new Date(userData.bookingDates[index]).toLocaleString()} {/* Display booking date and time */}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

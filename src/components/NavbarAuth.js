@@ -59,7 +59,7 @@ const NavbarAuth = () => {
             )}
             {loggedinGuide && userRole === "Guide" && (
               <li className="nav-item">
-                <Link to="/guide-dashboard" className="nav-link">Guide Dashboard</Link>
+                <Link to="/guide-dashboard" className="nav-link active">Guide Dashboard</Link>
               </li>
             )}
           </ul>

@@ -156,22 +156,21 @@ function GuideDashboard() {
               <button type="submit" className="btn btn-primary">Update Details</button>
             </form>
             <div className="mt-5">
-  <h2>Booked Places</h2>
+  <h2>Booked Places </h2>
   <ul>
-    {guideData.bookedPlaces && guideData.bookedPlaces.map((placeId, index) => (
-      <li key={index}>{placesData.find(place => place.id === placeId)?.name}</li>
-    ))}
-  </ul>
+  {guideData.bookedPlaces && guideData.bookedPlaces.map((placeId, index) => {
+    const placeName = placesData.find(place => place.id === placeId)?.name;
+    const userName = guideData.userWhoBooked[index]?.userName;
+    return (
+      <li key={index}>
+        Place: {placeName}, User: {userName}
+      </li>
+    );
+  })}
+</ul>
+
 </div>
 
-<div className="mt-5">
-  <h2>Users Who Booked You</h2>
-  <ul>
-    {guideData.userWhoBooked && guideData.userWhoBooked.map((booking, index) => (
-      <li key={index}>{booking.userName}</li>
-    ))}
-  </ul>
-</div>
 
 
           </div>
